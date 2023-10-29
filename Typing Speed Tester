@@ -1,0 +1,32 @@
+###   Typing Speed tester   ###
+
+import random
+import time
+sample_texts=[
+    "The quick brown fox jumps over the lazy dog."
+    "Coding is fun and challenging at the same time."
+    "Practice makes perfect."
+]
+def calculate_typing_speed(text,start_time,end_time):
+    words=text.split()
+    new_words=len(words)
+    elapsed_time=end_time-start_time
+    wpm=(len(words)/elapsed_time)*60
+    return wpm
+def typing_speed_text():
+    sample_text=random.choice(sample_texts)
+    print("type the following text:")
+    print(sample_text)
+    print("Press Enter to start typing...")
+    start_time=time.time()
+    user_input=input("Start typing:")
+    end_time=time.time()
+    wpm=calculate_typing_speed(sample_text,start_time,end_time)
+    print(f"Your typing speed: {wpm:.2f} WPM")
+if __name__=="__main__":
+    while True:
+        typing_speed_text()
+        play_again=input("Do you want to play again? (yes/no):").lower()
+        if play_again!="yes":
+            break
+        
